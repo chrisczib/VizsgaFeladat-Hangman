@@ -1,3 +1,7 @@
+/* NEED AJAX TO RETRIEVE DATA FROM THE RETRIEVAL PHP */
+
+
+
 //This will be changed to pull the data from the database with PHP and MySQL. 
 //Also updated to different categories. 
 //User will be able to choose categories which will contain about 15 words each.
