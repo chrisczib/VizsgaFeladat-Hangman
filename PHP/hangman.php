@@ -1,7 +1,18 @@
-//This will be changed to pull the data from the database with PHP and MySQL. 
-//Also updated to different categories. 
-//User will be able to choose categories which will contain about 15 words each.
-var programming_languages = [
+<?php
+// connect to database and retrieve the words 
+$connect = new mysqli("localhost", "root", "", "hangman");
+
+       if($connect -> errno > 0){
+           die("Adatbazis nem elerheto ".$connect->connect_error);
+       }
+        $connect->set_charset("utf8");
+
+
+?>
+
+
+<!-- Used to be programming_languages-->
+var words = [
     "python",
     "javascript",
     "mongodb",
@@ -28,7 +39,7 @@ let wordStatus = null;
 
 
 function randomWord (){
-    answer = programming_languages[Math.floor(Math.random() * programming_languages.length)]
+    answer = words[Math.floor(Math.random() * words.length)]
 }
 
 function generateButtons(){
