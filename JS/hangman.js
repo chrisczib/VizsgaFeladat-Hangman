@@ -1,11 +1,20 @@
-/* NEED AJAX TO RETRIEVE DATA FROM THE RETRIEVAL PHP */
-
+/*AJAX TO RETRIEVES DATA FROM THE RETRIEVAL hangman.php file */
+function loadDoc() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+       document.getElementById("demo").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "hangman.php?q=", true);
+    xhttp.send();
+  }
 
 
 //This will be changed to pull the data from the database with PHP and MySQL. 
 //Also updated to different categories. 
 //User will be able to choose categories which will contain about 15 words each.
-var programming_languages = [
+var word_list = [
     "python",
     "javascript",
     "mongodb",
@@ -32,7 +41,7 @@ let wordStatus = null;
 
 
 function randomWord (){
-    answer = programming_languages[Math.floor(Math.random() * programming_languages.length)]
+    answer = word_list[Math.floor(Math.random() * word_list.length)]
 }
 
 function generateButtons(){
@@ -71,7 +80,7 @@ function handleGuess(chosenLetter){
 }
 
 function updateHangmanPicture(){
-    document.getElementById('hangmanPic').src = './images/' + mistakes + '.jpg';
+    document.getElementById('hangmanPic').src = './images/' + mistakes + '.png';
 }
 
 function checkIfGameWon(){
@@ -96,7 +105,7 @@ function updateMistakes(){
 function reset(){
     mistakes = 0;
     guessed = [];
-    document.getElementById('hangmanPic').src = './images/0.jpg';
+    document.getElementById('hangmanPic').src = './images/0.png';
 
     randomWord();
     guessedWord();
