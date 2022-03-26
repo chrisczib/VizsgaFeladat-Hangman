@@ -32,7 +32,7 @@ var word_list = [
 ]
 
 
-
+let gameCounter = 0;
 let answer = '';
 let maxWrong = 6;
 let mistakes = 0;
@@ -85,15 +85,19 @@ function updateHangmanPicture(){
 
 function checkIfGameWon(){
     if(wordStatus === answer){
-        document.getElementById('keyboard').innerHTML = 'You won!';
+        document.getElementById('keyboard').innerHTML = 'Nyertél!';
     }
 }
 
 function checkIfGameLost(){
     if(mistakes === maxWrong){
-        document.getElementById('wordSpotlight').innerHTML = 'The answer was: ' + answer;
-        document.getElementById('keyboard').innerHTML = 'You lost!';
+        document.getElementById('wordSpotlight').innerHTML = 'Helyes válasz: ' + answer;
+        document.getElementById('keyboard').innerHTML = 'Vesztettél!';
     }
+}
+
+function newGame(){
+    
 }
 
 
@@ -104,20 +108,48 @@ function updateMistakes(){
 
 function reset(){
     mistakes = 0;
+    gameCounter++;
     guessed = [];
     document.getElementById('hangmanPic').src = './images/0.png';
+    document.getElementById('games').innerHTML = gameCounter;
+    randomWord();
+    guessedWord();
+    updateMistakes();
+    generateButtons();
+    //updateGames();
+}
 
+function startGame(){
+    document.getElementById('hangmanPic').src = './images/0.png';
+    document.getElementById('games').innerHTML = gameCounter;
     randomWord();
     guessedWord();
     updateMistakes();
     generateButtons();
 }
 
+function newGame(){
+    gameCounter = 0;
+    mistakes = 0;
+    guessed = [];
+    document.getElementById('hangmanPic').src = './images/0.png';
+    document.getElementById('games').innerHTML = gameCounter;
+    randomWord();
+    guessedWord();
+    updateMistakes();
+    generateButtons();
+}
 
-document.getElementById('maxWrong').innerHTML = maxWrong;
+//document.getElementById('maxWrong').innerHTML = maxWrong;
 
 
+const btn = document.getElementById('startButton');
 
+btn.addEventListener('click', () => {
+  // 👇️ hide button
+  btn.style.display = 'none';
+
+});
 
 randomWord();
 generateButtons();

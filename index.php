@@ -12,16 +12,18 @@
 <body>
     <div class="container col-sm-6">
         <h1 class="text-center">Akasztófa</h1>
-        <div class="float-end">Rossz talalat: <span id ='mistakes'> </span></div>
+        <div class="float-end">Rossz talalat: <span id ='mistakes'> </span></div> <br>
+        <div class="float-end">Játékok: <span id ='games'> </span></div>
         <div class="text-center"></div>
             <img id="hangmanPic" src="./images/0.png" alt="">
             <p class="text-center">Talald ki a szot!</p>
-            <p class="text-center" id="wordSpotlight">The word guessed goes here:</p>
+            <p class="text-center" id="wordSpotlight"></p>
         </div>
         <div class="text-center"><div id="keyboard"></div></div>
         
-        <div class="text-center"> <button class="btn btn-info" onclick="reset()">Reset</button></div>
-        
+        <div class="text-center"> <button class="btn btn-info" onclick="startGame()" id="startButton"> Kezdjük!</button> </div>
+        <div class="text-center"> <button class="btn btn-info" onclick="reset()">Még egy kör!</button> </div>
+        <div class="text-center"> <button class="btn btn-info" onclick="newGame()">Új Játék! </button> </div>
     </div>
 
     <script src="JS/hangman.js"></script>
@@ -29,7 +31,7 @@
     <div> 
         <?php
         // connect to database and retrieve the words 
-        $connect = new mysqli("localhost", "root", "", "Hangman_Words");
+        $connect = new mysqli("localhost", "root@localhost", "root", "words");
         
         if($connect -> errno > 0){
             die("Adatbazis nem elerheto".$connect->connect_error);
