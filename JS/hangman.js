@@ -126,6 +126,7 @@ function startGame(){
     guessedWord();
     updateMistakes();
     generateButtons();
+    
 }
 
 function newGame(){
@@ -140,17 +141,27 @@ function newGame(){
     generateButtons();
 }
 
-//document.getElementById('maxWrong').innerHTML = maxWrong;
+
+const startButton = document.getElementById('startButton');
+const resetButton = document.getElementById('reset');
+const newGameButton = document.getElementById('newGame');
 
 
-const btn = document.getElementById('startButton');
-
-btn.addEventListener('click', () => {
+startButton.addEventListener('click', () => {
   // 👇️ hide button
-  btn.style.display = 'none';
+  startButton.style.display = 'none';
+  resetButton.style.visibility = 'visible';
+  newGameButton.style.visibility = 'visible';
+  randomWord();
+  generateButtons();
+  guessedWord();
+
+
 
 });
 
-randomWord();
-generateButtons();
-guessedWord();
+
+
+//randomWord();
+//generateButtons();
+//guessedWord();
