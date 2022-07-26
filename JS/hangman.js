@@ -1,15 +1,3 @@
-/*AJAX TO RETRIEVES DATA FROM THE RETRIEVAL hangman.php file */
-function loadDoc() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-       document.getElementById("demo").innerHTML = this.responseText;
-      }
-    };
-    xhttp.open("GET", "hangman.php?q=", true);
-    xhttp.send();
-  }
-
 
 //This will be changed to pull the data from the database with PHP and MySQL. 
 //Also updated to different categories. 
@@ -28,7 +16,12 @@ var word_list = [
     "kotlin",
     "php",
     "sql",
-    "ruby"
+    "ruby",
+    "akasztófa"
+]
+
+var word_list2 = [
+    "akasztófa"
 ]
 
 
@@ -45,7 +38,7 @@ function randomWord (){
 }
 
 function generateButtons(){
-    let buttonsHTML = 'abcdefghijklmnopqrstuvwxyz'.split('').map(letter => 
+    let buttonsHTML = 'AÁBCDEÉFGHIÍJKLMNNOÓÖŐPRSTUÚÜŰVZ'.split('').map(letter => 
         `
             <button
                 class="btn btn-lg btn-primary m-2"

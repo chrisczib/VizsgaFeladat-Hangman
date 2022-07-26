@@ -1,6 +1,3 @@
-<?php   
-   require 'hangman.php';
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,8 +19,8 @@
 <body>
     <div class="container col-sm-6">
         <h1 class="text-center">Akasztófa</h1>
-        <div class="float-end">Rossz talalat: <span id ='mistakes'> </span></div> <br>
-        <div class="float-end">Játékok: <span id ='games'> </span></div>
+        <div class="float-end">Rossz találat: <span id ='mistakes'> </span></div> <br>
+        <div class="float-end">Kör: <span id ='games'> </span></div>
         <div class="text-center"></div>
             <img id="hangmanPic" src="./images/0.png" alt="">
            
@@ -39,7 +36,7 @@
     <script src="JS/hangman.js"></script>
 
     <div>
-    <?php
+   <!-- <?php
 // connect to database and retrieve the words 
     $sql = "SELECT id, word, category FROM hangman";
     $result = $connect ->query($sql);
@@ -50,7 +47,8 @@
             echo "</p>";
         }
     }
-?>
+?> 
+-->
     </div>
 
 
